@@ -1,5 +1,6 @@
 package com.kou.tank.start;
 
+import com.kou.tank.entity.Tank;
 import com.kou.tank.view.MyFrame;
 
 /**
@@ -11,10 +12,11 @@ public class GameIn {
 
     public static void main(String[] args) throws InterruptedException {
 
-        MyFrame myFrame = new MyFrame();
-        myFrame.setVisible(true);
 
-        for(;;){
+        MyFrame myFrame = new MyFrame();
+        new MyFrame().setVisible(true);
+
+        while (true) {
             Thread.sleep(50);
             myFrame.repaint();
 

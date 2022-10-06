@@ -2,7 +2,6 @@ package com.kou.tank.entity;
 
 import com.kou.tank.enume.TankDirEnum;
 import com.kou.tank.enume.TankEnum;
-import lombok.Data;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -14,7 +13,7 @@ import java.util.Objects;
 /**
  * @author JIAJUN KOU
  */
-@Data
+
 public class Tank {
 
     // 坦克位置
@@ -33,7 +32,7 @@ public class Tank {
     private boolean moving = false;
 
     // 坦克名称
-    private String title;
+    public String title;
 
     // 坦克等级
     private int level;
@@ -43,6 +42,86 @@ public class Tank {
         this.y = y;
         this.dirEnum = dirEnum;
         this.title = title;
+        this.level = level;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public TankDirEnum getDirEnum() {
+        return dirEnum;
+    }
+
+    public void setDirEnum(TankDirEnum dirEnum) {
+        this.dirEnum = dirEnum;
+    }
+
+    public boolean isbL() {
+        return bL;
+    }
+
+    public void setbL(boolean bL) {
+        this.bL = bL;
+    }
+
+    public boolean isbU() {
+        return bU;
+    }
+
+    public void setbU(boolean bU) {
+        this.bU = bU;
+    }
+
+    public boolean isbR() {
+        return bR;
+    }
+
+    public void setbR(boolean bR) {
+        this.bR = bR;
+    }
+
+    public boolean isbD() {
+        return bD;
+    }
+
+    public void setbD(boolean bD) {
+        this.bD = bD;
+    }
+
+    public boolean isMoving() {
+        return moving;
+    }
+
+    public void setMoving(boolean moving) {
+        this.moving = moving;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
         this.level = level;
     }
 
@@ -68,18 +147,10 @@ public class Tank {
         System.out.println("按下键盘");
         int keyCode = e.getKeyCode();
         switch (keyCode) {
-            case KeyEvent.VK_LEFT:
-                bL = true;
-                break;
-            case KeyEvent.VK_UP:
-                bU = true;
-                break;
-            case KeyEvent.VK_RIGHT:
-                bR = true;
-                break;
-            case KeyEvent.VK_DOWN:
-                bD = true;
-                break;
+            case KeyEvent.VK_LEFT -> bL = true;
+            case KeyEvent.VK_UP -> bU = true;
+            case KeyEvent.VK_RIGHT -> bR = true;
+            case KeyEvent.VK_DOWN -> bD = true;
         }
 
         // 确定移动方向
@@ -107,19 +178,11 @@ public class Tank {
 
     private void move() {
         if (!moving) return;
-        switch (dirEnum){
-            case L:
-                x -= SPEED;
-                break;
-            case U:
-                y -= SPEED;
-                break;
-            case R:
-                x += SPEED;
-                break;
-            case D:
-                y += SPEED;
-                break;
+        switch (dirEnum) {
+            case L -> x -= SPEED;
+            case U -> y -= SPEED;
+            case R -> x += SPEED;
+            case D -> y += SPEED;
         }
 
     }
@@ -129,18 +192,10 @@ public class Tank {
         System.out.println("松开键盘");
         int keyCode = e.getKeyCode();
         switch (keyCode) {
-            case KeyEvent.VK_LEFT:
-                bL = false;
-                break;
-            case KeyEvent.VK_UP:
-                bU = false;
-                break;
-            case KeyEvent.VK_RIGHT:
-                bR = false;
-                break;
-            case KeyEvent.VK_DOWN:
-                bD = false;
-                break;
+            case KeyEvent.VK_LEFT -> bL = false;
+            case KeyEvent.VK_UP -> bU = false;
+            case KeyEvent.VK_RIGHT -> bR = false;
+            case KeyEvent.VK_DOWN -> bD = false;
         }
         // 确定移动方向
         setMainDir();
