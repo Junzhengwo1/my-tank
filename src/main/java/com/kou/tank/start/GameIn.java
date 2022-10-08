@@ -17,7 +17,6 @@ public class GameIn {
         while (true) {
             Thread.sleep(50);
             myFrame.repaint();
-
         }
 
     }

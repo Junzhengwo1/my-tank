@@ -2,6 +2,7 @@ package com.kou.tank.view;
 
 import com.kou.tank.entity.Tank;
 import com.kou.tank.enume.TankDirEnum;
+import com.kou.tank.enume.TankEnum;
 import lombok.extern.slf4j.Slf4j;
 
 import java.awt.*;
@@ -30,6 +31,24 @@ public class MyFrame extends Frame {
 
 
     }
+
+    Image offScreenImage = null;
+
+    @Override
+    public void update(Graphics g){
+        if(null == offScreenImage ){
+            offScreenImage = this.createImage(TankEnum.SIZE_X.getSize(),TankEnum.SIZE_Y.getSize());
+        }
+        Graphics graphics = offScreenImage.getGraphics();
+        Color color = graphics.getColor();
+        graphics.fillRect(0,0,TankEnum.SIZE_X.getSize(), TankEnum.SIZE_Y.getSize());
+        graphics.setColor(color);
+        paint(graphics);
+        g.drawImage(offScreenImage,0,0,null);
+
+    }
+
+
 
     @Override
     public void paint(Graphics g) {

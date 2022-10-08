@@ -1,15 +1,11 @@
 package com.kou.tank.entity;
 
 import com.kou.tank.enume.TankDirEnum;
-import com.kou.tank.enume.TankEnum;
+import com.kou.tank.manage.ResMng;
 import lombok.Data;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.Objects;
 
 /**
  * @author JIAJUN KOU
@@ -48,16 +44,11 @@ public class Tank {
 
     // 画坦克
     public void paint(Graphics g) {
-        try {
-            BufferedImage tankImg = ImageIO.read(Objects.requireNonNull(Tank.class.getClassLoader().getResourceAsStream("static/logo.png")));
-
-            g.drawImage(tankImg,x,y,
-                    TankEnum.SIZE_X.getSize(),
-                    TankEnum.SIZE_Y.getSize(),
-                    null);
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        switch (dirEnum){
+            case L -> g.drawImage(ResMng.goodTankL,x,y,50,50,null);
+            case U -> g.drawImage(ResMng.goodTankU,x,y,50,50,null);
+            case R -> g.drawImage(ResMng.goodTankR,x,y,50,50,null);
+            case D -> g.drawImage(ResMng.goodTankD,x,y,50,50,null);
         }
 
         move();
