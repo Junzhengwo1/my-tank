@@ -2,6 +2,7 @@ package com.kou.tank.entity;
 
 import com.kou.tank.enume.TankDirEnum;
 import com.kou.tank.enume.TankEnum;
+import lombok.Data;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -13,7 +14,7 @@ import java.util.Objects;
 /**
  * @author JIAJUN KOU
  */
-
+@Data
 public class Tank {
 
     // 坦克位置
@@ -32,7 +33,7 @@ public class Tank {
     private boolean moving = false;
 
     // 坦克名称
-    public String title;
+    private String title;
 
     // 坦克等级
     private int level;
@@ -42,86 +43,6 @@ public class Tank {
         this.y = y;
         this.dirEnum = dirEnum;
         this.title = title;
-        this.level = level;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public TankDirEnum getDirEnum() {
-        return dirEnum;
-    }
-
-    public void setDirEnum(TankDirEnum dirEnum) {
-        this.dirEnum = dirEnum;
-    }
-
-    public boolean isbL() {
-        return bL;
-    }
-
-    public void setbL(boolean bL) {
-        this.bL = bL;
-    }
-
-    public boolean isbU() {
-        return bU;
-    }
-
-    public void setbU(boolean bU) {
-        this.bU = bU;
-    }
-
-    public boolean isbR() {
-        return bR;
-    }
-
-    public void setbR(boolean bR) {
-        this.bR = bR;
-    }
-
-    public boolean isbD() {
-        return bD;
-    }
-
-    public void setbD(boolean bD) {
-        this.bD = bD;
-    }
-
-    public boolean isMoving() {
-        return moving;
-    }
-
-    public void setMoving(boolean moving) {
-        this.moving = moving;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
         this.level = level;
     }
 

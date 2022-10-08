@@ -1,10 +1,13 @@
 package com.kou.tank.enume;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
  * 坦克 枚举
  */
-
+@AllArgsConstructor
+@Getter
 public enum TankEnum {
 
     SIZE_X(50,"宽50"),
@@ -13,16 +16,5 @@ public enum TankEnum {
     private final int size;
     private final String msg;
 
-    TankEnum(int size, String msg) {
-        this.size = size;
-        this.msg = msg;
-    }
 
-    public int getSize() {
-        return size;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
 }

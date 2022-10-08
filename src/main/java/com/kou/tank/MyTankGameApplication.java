@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MyTankApplication {
+public class MyTankGameApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MyTankApplication.class, args);
+        SpringApplication.run(MyTankGameApplication.class, args);
     }
 
 }
